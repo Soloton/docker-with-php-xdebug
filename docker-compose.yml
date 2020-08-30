@@ -11,7 +11,7 @@ services:
         - ./aliases/php74/bash.bashrc:/etc/bash.bashrc
       environment:
         XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1 remote_autostart=off  remote_port=9008"
-        PHP_IDE_CONFIG: "serverName=first"
+        PHP_IDE_CONFIG: "serverName=first.test"
       networks:
         - test-network
     php-second:
@@ -25,7 +25,7 @@ services:
         - ./aliases/php74/bash.bashrc:/etc/bash.bashrc
       environment:
         XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1 remote_autostart=off  remote_port=9009"
-        PHP_IDE_CONFIG: "serverName=second"
+        PHP_IDE_CONFIG: "serverName=second.test"
       networks:
         - test-network
     nginx-test:
