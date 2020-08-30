@@ -28,6 +28,20 @@ services:
         PHP_IDE_CONFIG: "serverName=second.test"
       networks:
         - test-network
+    php-ishop2:
+      build:
+        context: ./images/php74
+        args:
+          - USER_ID
+          - GROUP_ID
+      volumes:
+        - ./www:/var/www
+        - ./aliases/php74/bash.bashrc:/etc/bash.bashrc
+      environment:
+        XDEBUG_CONFIG: "remote_host=192.168.158.1 remote_enable=1 remote_autostart=off  remote_port=9010"
+        PHP_IDE_CONFIG: "serverName=ishop2.test"
+      networks:
+        - test-network
     nginx-test:
       image: nginx
       volumes:
@@ -39,11 +53,13 @@ services:
       depends_on:
         - php-first
         - php-second
+        - php-ishop2
       networks:
         test-network:
           aliases: # алиасы нужны если нужно общаться внутри сети между хостами. Например, если вы используете api
             - first.test
             - second.test
+            - ishop2.test
 #    mysql:
 #      image: mysql:5.7
 #      ports:
