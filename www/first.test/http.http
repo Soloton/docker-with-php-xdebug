@@ -1,4 +1,4 @@
-POST http://two.loc:8080/
+POST http://second.test:8080/
 Content-Type: application/json
 
 {}
