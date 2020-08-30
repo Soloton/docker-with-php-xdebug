@@ -10,7 +10,7 @@ services:
         - ./www:/var/www
         - ./aliases/php74/bash.bashrc:/etc/bash.bashrc
       environment:
-        XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1 remote_autostart=off  remote_port=9008"
+        XDEBUG_CONFIG: "remote_host=192.168.158.1 remote_enable=1 remote_autostart=off  remote_port=9008"
         PHP_IDE_CONFIG: "serverName=first.test"
       networks:
         - test-network
@@ -24,7 +24,7 @@ services:
         - ./www:/var/www
         - ./aliases/php74/bash.bashrc:/etc/bash.bashrc
       environment:
-        XDEBUG_CONFIG: "remote_host=192.168.220.1 remote_enable=1 remote_autostart=off  remote_port=9009"
+        XDEBUG_CONFIG: "remote_host=192.168.158.1 remote_enable=1 remote_autostart=off  remote_port=9009"
         PHP_IDE_CONFIG: "serverName=second.test"
       networks:
         - test-network
@@ -60,4 +60,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 192.168.220.0/28
+        - subnet: 192.168.158.0/28
